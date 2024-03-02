@@ -68,6 +68,7 @@
                 <input type="file" id="fileElem" multiple accept=".fasta" >
                 <label class="button" for="fileElem">Select some files</label>
                 <button type="submit" class="button">Upload Files</button>
+                <button onclick="clearFiles()" class="button">Clear Files</button>
             </form>
         </div>
 
@@ -120,6 +121,11 @@ document.getElementById('file-upload-form').addEventListener('submit', function(
     e.preventDefault(); // Prevent the default form submission
     Array.from(selectedFiles).forEach(uploadFile); // Upload selected files
 });
+
+function clearFiles(){
+  document.getElementById("fileElem").value=null;
+
+}
 
 function uploadFile(file) {
     let url = '/post-fasta';
