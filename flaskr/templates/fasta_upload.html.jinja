@@ -62,11 +62,12 @@
 <div class="container-fluid d-flex flex-column">
     <div class="my-auto">
         <div id="drop-area">
-            <form class="my-form">
+            <form class="my-form" id="file-upload-form">
                 <p>Upload multiple files with the file dialog or by dragging and dropping images onto the dashed region
                 </p>
-                <input type="file" id="fileElem" multiple accept=".fasta" onchange="handleFiles(this.files)">
+                <input type="file" id="fileElem" multiple accept=".fasta" >
                 <label class="button" for="fileElem">Select some files</label>
+                <button type="submit" class="button">Upload Files</button>
             </form>
         </div>
 
@@ -74,63 +75,64 @@
 </div>
 <script>
 
-    let dropArea = document.getElementById('drop-area')
-    
+   let dropArea = document.getElementById('drop-area');
+let selectedFiles = []; // To store selected files
 
-        ;['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
-            dropArea.addEventListener(eventName, preventDefaults, false)
-        })
+// Prevent default drag behaviors
+['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+    dropArea.addEventListener(eventName, preventDefaults, false)
+})
 
-    function preventDefaults(e) {
-        e.preventDefault()
-        e.stopPropagation()
-    }
+function preventDefaults(e) {
+    e.preventDefault();
+    e.stopPropagation();
+}
 
-    ;['dragenter', 'dragover'].forEach(eventName => {
-        dropArea.addEventListener(eventName, highlight, false)
+// Highlight drop area when dragging files over it
+['dragenter', 'dragover'].forEach(eventName => {
+    dropArea.addEventListener(eventName, highlight, false)
+});
+['dragleave', 'drop'].forEach(eventName => {
+    dropArea.addEventListener(eventName, unhighlight, false)
+});
+
+function highlight(e) {
+    dropArea.classList.add('highlight');
+}
+
+function unhighlight(e) {
+    dropArea.classList.remove('highlight');
+}
+
+// Handle file selection
+document.getElementById('fileElem').addEventListener('change', function(e) {
+    selectedFiles = e.target.files;
+});
+
+// Handle file drop
+dropArea.addEventListener('drop', function(e) {
+    let dt = e.dataTransfer;
+    selectedFiles = dt.files;
+});
+
+// Upload files on form submission
+document.getElementById('file-upload-form').addEventListener('submit', function(e) {
+    e.preventDefault(); // Prevent the default form submission
+    Array.from(selectedFiles).forEach(uploadFile); // Upload selected files
+});
+
+function uploadFile(file) {
+    let url = '/post-fasta';
+    let formData = new FormData();
+
+    formData.append('file', file);
+
+    fetch(url, {
+        method: 'POST',
+        body: formData
     })
-
-        ;['dragleave', 'drop'].forEach(eventName => {
-            dropArea.addEventListener(eventName, unhighlight, false)
-        })
-
-    function highlight(e) {
-        dropArea.classList.add('highlight');
-    }
-
-    function unhighlight(e) {
-        dropArea.classList.remove('highlight');
-    }
-
-    dropArea.addEventListener('drop', handleDrop, false);
-
-    function handleFiles(files) {
-        ([...files]).forEach(uploadFile)
-    }
-
-    function handleDrop(e) {
-        let dt = e.dataTransfer
-        let files = dt.files
-
-        handleFiles(files)
-    }
-
-
-    function uploadFile(file) {
-        let url = '/post-fasta'
-        let formData = new FormData()
-
-        formData.append('file', file)
-
-        fetch(url, {
-            method: 'POST',
-            body: formData
-        })
-            .then(() => { console.log("uploaded"); })
-            .catch(() => { console.log("it broke"); })
-    }
-
-
-
+    .then(() => { console.log("uploaded"); })
+    .catch(() => { console.log("it broke"); });
+}
 </script>
 {% endblock %}
