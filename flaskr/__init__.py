@@ -1,7 +1,8 @@
 import os
 
-from flask import Flask, render_template, flash, request, redirect, url_for
+from flask import Flask, render_template, flash, request, redirect, url_for, session
 from werkzeug.utils import secure_filename
+from . import gen_report
 
 ALLOWED_EXTENSIONS = {'fasta'}
 
@@ -43,9 +44,26 @@ def create_app(test_config=None):
     def fastaUpload():
         return render_template('fasta_upload.html.jinja')
     
+    
+    
     @app.route('/earth-upload')
     def earthUpload():
         return render_template('fasta_upload.html.jinja', earth="true")
+
+    @app.route('/post-earth', methods=['POST'])
+    def postEarth():
+        if request.method == 'POST':
+            request_data = request.get_json()
+        
+            if request_data:
+                if 'diet_type' in request_data:
+                    session['diet'] = request_data['diet_type']
+        
+        return redirect(url_for('earthUpload'))
+    
+    @app.route('/earth', methods=['GET'])
+    def start_earth():
+        return render_template('earth_start.html.jinja')
     
     def allowed_file(filename):
         return '.' in filename and \
@@ -72,9 +90,23 @@ def create_app(test_config=None):
     @app.route('/randomized')
     def randomPage():
         return render_template('randomized.html.jinja')
+    
 
-    @app.route('/hello')
-    def hello():
-        return 'Hello, World!'
+    
+
+    @app.route('/earth-report')
+    def earth_report():
+        warnings_dict = gen_report.gen_earth()
+        return render_template('earth_report.html.jinja', warnings=warnings_dict)
+    
+    @app.route('/space-report')
+    def space_report():
+        total = gen_report.gen_space(session['astro_ct'])
+        return render_template('space_report.html.jinja', total=total)
+
+    @app.route('/space-charts')
+    def space_charts():
+        astros = gen_report.gen_charts()
+        return render_template('space_report.html.jinja', astros=astros)
 
     return app

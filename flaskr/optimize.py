@@ -109,7 +109,7 @@ astro_conditions = {}
 
 astro_count = 5
 
-with open('./food_data/base_dailyValue.csv', encoding='utf-8') as csvf:
+with open('./flaskr/food_data/base_dailyValue.csv', encoding='utf-8') as csvf:
     csvReader = csv.DictReader(csvf)
     for row in csvReader:
         key = row['nutrient']
@@ -117,7 +117,7 @@ with open('./food_data/base_dailyValue.csv', encoding='utf-8') as csvf:
         nutrients.append(key)
         base_nutrition_requirements[key] = convert_nutrition_metric(key, float(row['value']), row['unit'])
 
-with open('./food_data/foods.csv', encoding='utf-8') as fd:
+with open('./flaskr/food_data/foods.csv', encoding='utf-8') as fd:
     csvReader = csv.DictReader(fd)
     for row in csvReader:
         key = row['Food Name']
@@ -125,20 +125,42 @@ with open('./food_data/foods.csv', encoding='utf-8') as fd:
         food_nutrients[key] = row
         food_portions[key] = float(row['portion (g)'])
 
+nutrition_rules = {}
+
+with open("./flaskr/food_data/nutritionRules.csv") as nr:
+    csvReader = csv.DictReader(nr)
+    for row in csvReader:
+        key = row['Gene']
+        nutrition_rules[key] = row
+
 
 # MTHFR	CYP1A2	CYP2E1	FADS1	SOD2	BCMO1	SLC2A2	PPARG	GSTP1	PCSK9	UGT1A1	NR1I2
 
-with open('./food_data/people.csv') as csvp:
+with open('./flaskr/food_data/people.csv') as csvp:
     random_astro_genes = csv.DictReader(csvp)
     ind = 0
     for row in random_astro_genes:
         val = 0
         astro_nutrition_requirements[ind] = base_nutrition_requirements.copy()
-        if row['MTHFR'] == 'TRUE':
-            split_val = astro_nutrition_requirements[ind]['folate'].split(" ")
-            val = float(split_val[0])
-            unit = split_val[1]
-            astro_nutrition_requirements[ind]['folate'] = str(val + 20) + " " + unit
+        for gene, value in row.items():
+            if value == 'TRUE':
+                split_adj = nutrition_rules[gene]['adjustments'].replace("{", "").replace("}", "")
+                if split_adj.find(":") >0:
+                    split_adj = split_adj.split(":")
+                    adj_k = split_adj[0].strip()
+                    adj_val = 0
+                    if split_adj[1].find("+") >0:
+                        adj_val = float(split_adj[1].replace("+", "").strip())
+                    elif split_adj[1].find("-") > 0:
+                        adj_val = -float(split_adj[1].replace("-", "").strip())
+                    
+                    split_val = astro_nutrition_requirements[ind][adj_k].split(" ")
+                    val = float(split_val[0])
+                    unit = split_val[1]
+                    print(val, " ", adj_val, " ", val + adj_val)
+                    astro_nutrition_requirements[ind][adj_k] = str(val + adj_val) + " " + unit
+
+        
         
         
         ind += 1
@@ -211,16 +233,10 @@ for key, value in food_nutrients.items():
             value[(t.split("(")[0]).strip()] = value.pop(t)
       
 
-print(food_nutrients)
 
-for nutrient in nutrients:
-    for food in foods:
-        print(food_nutrients[food].get(nutrient, 0))
 
 CONSTRAINT_COEFFICIENTS = [[-float(food_nutrients[food].get(nutrient, 0)) for food in foods] for nutrient in nutrients]
-print(CONSTRAINT_COEFFICIENTS)
 CONSTRAINT_VALUES = [-float(nutrition_requirements[nutrient]) for nutrient in nutrients]
-print("\n\n\n", CONSTRAINT_VALUES)
 BOUNDS = [(0, None) for _ in foods]
 res = linprog(MIN, A_ub=CONSTRAINT_COEFFICIENTS, b_ub=CONSTRAINT_VALUES, bounds=BOUNDS)
 
@@ -230,13 +246,3 @@ res = linprog(MIN, A_ub=CONSTRAINT_COEFFICIENTS, b_ub=CONSTRAINT_VALUES, bounds=
 # the program outputs how many grams of each food are needed. or whatever unit you used in your portion sizes.
 # it also outputs the total mass of food
 
-print("\n\n\n", res)
-
-print(nutrition_requirements)
-
-for (i, food) in enumerate(foods):
-    print(food)
-    print(res.x[i])
-    print(food_portions[food])
-    print(f'{food}: {res.x[i] * food_portions[food]}')
-print('total food mass', res.fun)
