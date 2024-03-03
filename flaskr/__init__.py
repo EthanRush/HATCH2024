@@ -43,6 +43,10 @@ def create_app(test_config=None):
     def fastaUpload():
         return render_template('fasta_upload.html.jinja')
     
+    @app.route('/earth-upload')
+    def earthUpload():
+        return render_template('fasta_upload.html.jinja', earth="true")
+    
     def allowed_file(filename):
         return '.' in filename and \
             filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
