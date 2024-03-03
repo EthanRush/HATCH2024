@@ -121,7 +121,7 @@ for i, astronaut_alignments in enumerate(alignments):
 ### Pairwise Alignment in Bioinformatics
 
 **What Is Pairwise Alignment?**
-Pairwise alignment is a bioinformatics method used to align two sequences (DNA, RNA, or protein) to identify regions of similarity. The sequences are aligned in a way that maximizes the number of matching characters and minimizes the number of gaps or mismatches.
+Pairwise alignment is a bioinformatics method used to align two sequences to identify regions of similarity. The sequences are aligned in a way that maximizes the number of matching characters and minimizes the number of gaps or mismatches.
 
 **Why Is It Necessary?**
 In the context of this challenge, pairwise alignment is necessary for several reasons:
