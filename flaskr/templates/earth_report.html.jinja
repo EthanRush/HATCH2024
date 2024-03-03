@@ -1,0 +1,95 @@
+{% extends "base.html.jinja" %}
+{% block title %}Earth Report{% endblock %}
+{% block head %}
+{{ super() }}
+<section class="intro">
+    <div class="gradient-custom-1 h-100 text-center">
+      <div class="mask mt-3 d-flex align-items-center h-100">
+          <h1>Your Diet Recommendations</h1>
+
+        <div class="container no-max">
+          <div class="row justify-content-center">
+            <div class="col-12">
+              <div class="table-responsive bg-white">
+                <table class="table w-100 no-max mb-0">
+                  <thead>
+                    <tr>
+                      <th scope="col">Gene With Variation</th>
+                      <th scope="col">RS Number</th>
+                      <th scope="col">Problem</th>
+                      <th scope="col">Recommendation</th>
+                      <th scope="col">Reference</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  {% for var in warnings %}
+                    <tr>
+                      <th scope="row" style="color: #666666;"><div class="badge">{{ var['Gene'] }}</div> </th>
+                      <td>{{ var['rs number'] }}</td>
+                      <td>{{ var['problem'] }}</td>
+                      <td>{{ var['recommendation'] }}</td>
+                      <td><a class="btn btn-primary" href="{{ var['reference'] }}">Read More</a></td>
+                    </tr>
+                    {% endfor %}
+                   
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+<style>
+  html,
+body,
+.intro {
+  height: 100%;
+}
+.gradient-custom-1, #content {
+  /* fallback for old browsers */
+  background: #CD9CF2 !important;
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to top, rgba(205, 156, 242, 1), rgba(246, 243, 255, 1)) !important;
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to top, rgba(205, 156, 242, 1), rgba(246, 243, 255, 1)) !important;
+}
+table td,
+table th {
+  text-overflow: ellipsis;
+  white-space: break-spaces;
+  overflow: hidden;
+}
+tbody td {
+  font-weight: 500;
+  color: #999999;
+}
+.no-max{
+  max-width: 70vw;
+}
+
+table {
+  max-height: 70vh;
+}
+
+.badge{
+  background-color: #CD9CF2;
+}
+
+.btn{
+  background-color:rgba(205, 156, 242, 1);
+  border: 0;
+}
+
+</style>
+{% endblock %}
+
+
+
+
+
+
+
+
+

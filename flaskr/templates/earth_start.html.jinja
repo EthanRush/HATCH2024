@@ -1,0 +1,72 @@
+{% extends "base.html.jinja"%}
+
+{% block title %}Earth{% endblock %}
+
+{% block head %}
+{{ super() }}
+<style type="text/css">
+    #vegan-btn {
+        background-color: #DD5B6C;
+        font-size: x-large;
+        width: 100%;
+        height: 100%;
+        min-height: 12vh;
+        color: white;
+
+    }
+
+    #veggie-btn {
+        background-color: #33E4B4;
+        font-size: x-large;
+        width: 100%;
+        height: 100%;
+        min-height: 12vh;
+        color: white;
+    }
+
+    #omni-btn {
+        background-color: #33E4B4;
+        font-size: x-large;
+        width: 100%;
+        height: 100%;
+        min-height: 12vh;
+        color: white;
+    }
+
+    .container-fluid {
+        height: 100%;
+        min-height: 90vh;
+    }
+</style>
+{% endblock %}
+{% block content %}
+<div class="container-fluid d-flex flex-column">
+    <div class="my-auto">
+        <div class="row mb-5 text-center">
+            <h2>Choose Your Astronauts</h2>
+        </div>
+        <div class="row w-75 mx-auto mt-5 text-center">
+                <button id="vegan-btn" onclick="postDiet('vegan')">Vegan</button>
+        </div>
+        <div class="row w-75 mx-auto mt-5 text-center">
+                <button id="veggie-btn" onclick="postDiet('veggie')">Vegetarian</button>
+        </div>
+         <div class="row w-75 mx-auto mt-5 text-center">
+                <button id="omni-btn" onclick="postDiet('omni')">Omnivore</button>
+        </div>
+    </div>
+</div>
+<script>
+
+function postDiet(diet){
+fetch("/post-earth", {
+  method: "POST",
+  headers: { "Content-type": "application/json" },
+  body: JSON.stringify({ diet_type: diet})
+}) .then(() => { console.log("clicked");  })
+            .catch(() => { console.log("it broke"); });;
+}
+
+
+</script>
+{% endblock %}
