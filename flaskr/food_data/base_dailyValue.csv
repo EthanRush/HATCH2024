@@ -6,8 +6,8 @@ choline,550,mg
 cholesterol,300,mg
 chromium,35,mcg
 copper,0.9,mg
-dietary fiber,28,g
-Total lipid (fat),78,g
+dietary_fiber,28,g
+total_lipid_fat,78,g
 folate,400,mcg
 iodine,150,mcg
 iron,18,mg
@@ -15,7 +15,7 @@ magnesium,420,mg
 manganese,2.3,mg
 molybdenum,45,mg
 niacin,16,mg
-pantothenic acid,5,mg
+pantothenic_acid,5,mg
 phosphorus,1250,mg
 potassium,4700,mg
 protein,50,g
@@ -24,13 +24,13 @@ saturated fat,20,g
 selenium,55,mcg
 sodium,2300,g
 thiamin,1.2,mg
-total carbohydrates,257,g
-Vitamin A,900,mcg
-Vitamin B6,1.7,mg
-Vitamin B12,2.4,mcg
-Vitamin C,90,mg
-Vitamin D,20,mcg
-Vitamin E,15,mg
-Vitamin K,120,mcg
-Zinc,11,mg
-Calories,2500,C
+total_carbohydrates,257,g
+vitamin_A,900,mcg
+Vitamin_B6,1.7,mg
+Vitamin_B12,2.4,mcg
+Vitamin_C,90,mg
+Vitamin_D,20,mcg
+Vitamin_e,15,mg
+vitamin_k,120,mcg
+zinc,11,mg
+calories,2500,C

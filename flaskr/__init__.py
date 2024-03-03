@@ -42,10 +42,13 @@ def create_app(test_config=None):
     
     @app.route('/fasta-upload')
     def fastaUpload():
+        session['random'] = False
         return render_template('fasta_upload.html.jinja')
     
     
-    
+    @app.route('/earth', methods=['GET'])
+    #def start_earth():
+    #    return render_template('earth_start.html.jinja')
     @app.route('/earth-upload')
     def earthUpload():
         return render_template('fasta_upload.html.jinja', earth="true")
@@ -58,12 +61,9 @@ def create_app(test_config=None):
             if request_data:
                 if 'diet_type' in request_data:
                     session['diet'] = request_data['diet_type']
-        
         return redirect(url_for('earthUpload'))
     
-    @app.route('/earth', methods=['GET'])
-    def start_earth():
-        return render_template('earth_start.html.jinja')
+    
     
     def allowed_file(filename):
         return '.' in filename and \
@@ -87,11 +87,18 @@ def create_app(test_config=None):
                 file.save(os.path.join(os.path.normpath(app.config['UPLOAD_FOLDER']), filename))
                 return render_template('mission_length.html.jinja')
 
-    @app.route('/randomized')
+    @app.route('/randomized', methods=['GET','POST'])
     def randomPage():
-        return render_template('randomized.html.jinja')
-    
-
+        if request.method == 'POST':
+            request_data = request.get_json()
+        
+            if request_data:
+                if 'astro_ct' in request_data:
+                    session['astro_ct'] = request_data['astro_ct']
+            return redirect(url_for('demo_space_report'))
+        else:
+            session['random'] = True
+            return render_template('randomized.html.jinja')
     
 
     @app.route('/earth-report')
@@ -100,9 +107,14 @@ def create_app(test_config=None):
         return render_template('earth_report.html.jinja', warnings=warnings_dict)
     
     @app.route('/space-report')
-    def space_report():
-        total = gen_report.gen_space(session['astro_ct'])
-        return render_template('space_report.html.jinja', total=total)
+    #def space_report():
+        #total = gen_report.gen_space(session['astro_ct'], session['random'])
+        #return render_template('space_report.html.jinja', total=total)
+        # return render_template('space_report.html.jinja')
+    
+    @app.route('/demo-space-report')
+    def demo_space_report():
+        return render_template('demo_space_report.html.jinja')
 
     @app.route('/space-charts')
     def space_charts():

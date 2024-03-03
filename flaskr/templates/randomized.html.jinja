@@ -1,0 +1,79 @@
+{% extends "base.html.jinja" %}
+
+{% block title %}Space{% endblock %}
+
+{% block head %}
+{{ super() }}
+<style type="text/css">
+    #space-btn {
+        background-color: #DD5B6C;
+        font-size: x-large;
+        width: 100%;
+        height: 100%;
+        min-height: 12vh;
+        color: white;
+
+    }
+
+    #earth-btn {
+        background-color: #33E4B4;
+        font-size: x-large;
+        width: 100%;
+        height: 100%;
+        min-height: 12vh;
+        color: white;
+    }
+
+    .container-fluid {
+        height: 100%;
+        min-height: 90vh;
+    }
+
+    #astro_ct {
+        background-color: white;
+        height: 100%;
+        min-height: 30vh;
+        font-size: 70px;
+    }
+</style>
+{% endblock %}
+{% block content %}
+<div class="container-fluid d-flex flex-column">
+    <div class="my-auto">
+        <div class="row mb-5 text-center">
+            <h2>How Many Random Astronauts</h2>
+        </div>
+        <form id="astro-submit" class="row w-75 mx-auto mt-5 text-center">
+            <input id="astro_ct" type="number">
+            <div class="row w-75 mx-auto mt-5 text-center">
+                <input type="submit" id="space-btn">Submit</button>
+            </div>
+    </div>
+</div>
+<script>
+
+    function upload_ct(ct) {
+    fetch("/randomized", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ "astro_ct": ct })
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        console.log("clicked");
+        window.location.href = "/space-report";
+    })
+    .catch(error => {
+        console.error("Fetch error: ", error);
+    });
+}
+
+document.getElementById('astro-submit').addEventListener('submit', function (e) {
+    e.preventDefault(); // Prevent the default form submission
+    upload_ct(document.getElementById('astro_ct').value);
+});
+
+</script>
+{% endblock %}

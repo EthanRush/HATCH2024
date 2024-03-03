@@ -47,10 +47,17 @@ def gen_earth(path=None):
 
 
 
-def gen_space(astro_ct):
+def gen_space(astro_ct, random=False):
 
-    with open('./person_data/final_data.json') as foodf:
-        foodjson = json.load(foodf)
+
+    if random:
+        people = make_random_people(astro_ct)
+        
+
+
+    else:
+        with open('./flaskr/person_data/final_data.json') as foodf:
+            foodjson = json.load(foodf)
 
        
 

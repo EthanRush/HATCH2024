@@ -1,0 +1,408 @@
+{% extends "base.html.jinja" %}
+{% block title %}Space Report{% endblock %}
+{% block head %}
+{{ super() }}
+<section class="intro">
+    <div class="gradient-custom-1  text-center">
+        <h1 class="mt-5 mb-3 pb-2"> Mission Nutrition Info</h1>
+        <div class="mask mt-3 d-flex align-items-center">
+            <div class="container no-max">
+                <div class="row justify-content-center">
+                    <div class="col-12">
+                        <div class="table-responsive bg-white">
+                            <h2 class="py-3">Daily Menu</h2>
+                            <table class="table w-100 no-max mb-0">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Food Name</th>
+                                        <th scope="col">Servings</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Chinese cabbage</td>
+                                        <td>100 g</td>
+                                    </tr>
+                                    <tr>
+                                        <td>mizuna mustard</td>
+                                        <td>100 g</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kale</td>
+                                        <td>100 g</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Brown Rice</td>
+                                        <td>100 g</td>
+                                    </tr>
+                                    <tr>
+                                        <td>thale cress</td>
+                                        <td>100 g</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Flax seeds</td>
+                                        <td>100 g</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Yellow Onions</td>
+                                        <td>100 g</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Blackeye Pea, Dry</td>
+                                        <td>100 g</td>
+                                    </tr>
+                                    <tr>
+                                        <td>radishes raw</td>
+                                        <td>100 g</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Romaine Lettuce</td>
+                                        <td>100 g</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Wheat Flour Whole Grain</td>
+                                        <td>100 g</td>
+                                    </tr>
+                                    <tr>
+                                        <td>garlic raw</td>
+                                        <td>100 g</td>
+                                    </tr>
+                                    <tr>
+                                        <td>cucumbers, peeled raw</td>
+                                        <td>100 g</td>
+                                    </tr>
+                                    <tr>
+                                        <td>parsley</td>
+                                        <td>100 g</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Russet potato without skin</td>
+                                        <td>100 g</td>
+                                    </tr>
+                                    <tr>
+                                        <td>dill</td>
+                                        <td>100 g</td>
+                                    </tr>
+                                    <tr>
+                                        <td>red romaine lettuce</td>
+                                        <td>100 g</td>
+                                    </tr>
+                                    <tr>
+                                        <td>beef</td>
+                                        <td>100 g</td>
+                                    </tr>
+                                    <tr>
+                                        <td>chicken</td>
+                                        <td>100 g</td>
+                                    </tr>
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mask mt-3 d-flex align-items-center">
+            <div class="container no-max">
+                <div class="row justify-content-center">
+                    <div class="col-12">
+                        <div class="table-responsive bg-white">
+                            <h2 class="py-3">Nutrition From Menu</h2>
+                            <table class="table w-100 no-max mb-0">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Food Name</th>
+                                        <th scope="col">Grams</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>biotin</td>
+                                        <td>0.003 mg</td>
+                                    </tr>
+                                    <tr>
+                                        <td>calcium</td>
+                                        <td>1380.0 mg</td>
+                                    </tr>
+                                    <tr>
+                                        <td>chloride</td>
+                                        <td>12.1 mg</td>
+                                    </tr>
+                                    <tr>
+                                        <td>choline</td>
+                                        <td>174.1 mg</td>
+                                    </tr>
+                                    <tr>
+                                        <td>cholesterol</td>
+                                        <td>149.0 mg</td>
+                                    </tr>
+                                    <tr>
+                                        <td>chromium</td>
+                                        <td>0.019 mg</td>
+                                    </tr>
+                                    <tr>
+                                        <td>copper</td>
+                                        <td>3.886 mg</td>
+                                    </tr>
+                                    <tr>
+                                        <td>dietary fiber</td>
+                                        <td>78.51 mg</td>
+                                    </tr>
+                                    <tr>
+                                        <td>total lipid (fat)</td>
+                                        <td>79.93 mg</td>
+                                    </tr>
+                                    <tr>
+                                        <td>folate</td>
+                                        <td>720.0 mg</td>
+                                    </tr>
+                                    <tr>
+                                        <td>iodine</td>
+                                        <td>9.0 mg</td>
+                                    </tr>
+                                    <tr>
+                                        <td>iron</td>
+                                        <td>39.56 mg</td>
+                                    </tr>
+                                    <tr>
+                                        <td>magnesium</td>
+                                        <td>1089.8 mg</td>
+                                    </tr>
+                                    <tr>
+                                        <td>manganese</td>
+                                        <td>12.284 mg</td>
+                                    </tr>
+                                    <tr>
+                                        <td>molybdenum</td>
+                                        <td>68.8 mg</td>
+                                    </tr>
+                                    <tr>
+                                        <td>niacin</td>
+                                        <td>22.276 mg</td>
+                                    </tr>
+                                    <tr>
+                                        <td>pantothenic acid</td>
+                                        <td>1.311 mg</td>
+                                    </tr>
+                                    <tr>
+                                        <td>phosphorus</td>
+                                        <td>2417.0 mg</td>
+                                    </tr>
+                                    <tr>
+                                        <td>potassium</td>
+                                        <td>6991.0 mg</td>
+                                    </tr>
+                                    <tr>
+                                        <td>protein</td>
+                                        <td>88.87 mg</td>
+                                    </tr>
+                                    <tr>
+                                        <td>riboflavin</td>
+                                        <td>1.548 mg</td>
+                                    </tr>
+                                    <tr>
+                                        <td>saturated fat</td>
+                                        <td>0.0 mg</td>
+                                    </tr>
+                                    <tr>
+                                        <td>selenium</td>
+                                        <td>45.1 mg</td>
+                                    </tr>
+                                    <tr>
+                                        <td>sodium</td>
+                                        <td>446.4 mg</td>
+                                    </tr>
+                                    <tr>
+                                        <td>thiamin</td>
+                                        <td>0.282 mg</td>
+                                    </tr>
+                                    <tr>
+                                        <td>total carbohydrates</td>
+                                        <td>33.41 mg</td>
+                                    </tr>
+                                    <tr>
+                                        <td>vitamin A</td>
+                                        <td>1650.0 mg</td>
+                                    </tr>
+                                    <tr>
+                                        <td>vitamin B6</td>
+                                        <td>3.055 mg</td>
+                                    </tr>
+                                    <tr>
+                                        <td>vitamin B12</td>
+                                        <td>0.0 mg</td>
+                                    </tr>
+                                    <tr>
+                                        <td>vitamin C</td>
+                                        <td>325.8 mg</td>
+                                    </tr>
+                                    <tr>
+                                        <td>vitamin D</td>
+                                        <td>0.0 mg</td>
+                                    </tr>
+                                    <tr>
+                                        <td>vitamin E</td>
+                                        <td>1.58 mg</td>
+                                    </tr>
+                                    <tr>
+                                        <td>vitamin K</td>
+                                        <td>2316.7 mg</td>
+                                    </tr>
+                                    <tr>
+                                        <td>zinc</td>
+                                        <td>24.36 mg</td>
+                                    </tr>
+                                    <tr>
+                                        <td>calories</td>
+                                        <td>2217.0 mg</td>
+                                    </tr>
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mask mt-3 d-flex align-items-center">
+            <div class="container no-max">
+                <div class="row justify-content-center">
+                    <div class="col-12">
+                        <div class="table-responsive bg-white">
+                            <h2 class="my-3 py-2">Neccessary Supplements</h2>
+                            <table class="table w-100 no-max mb-0">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Food Name</th>
+                                        <th scope="col">Grams</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>biotin</td>
+                                        <td>29.997 mg</td>
+                                    </tr>
+                                    <tr>
+                                        <td>calcium</td>
+                                        <td>11620.0 mg</td>
+                                    </tr>
+                                    <tr>
+                                        <td>chloride</td>
+                                        <td>2287.9 mg</td>
+                                    </tr>
+                                    <tr>
+                                        <td>choline</td>
+                                        <td>375.9 mg</td>
+                                    </tr>
+                                    <tr>
+                                        <td>cholesterol</td>
+                                        <td>151.0 mg</td>
+                                    </tr>
+                                    <tr>
+                                        <td>chromium</td>
+                                        <td>34.981 mg</td>
+                                    </tr>
+                                    <tr>
+                                        <td>iodine</td>
+                                        <td>141.0 mg</td>
+                                    </tr>
+                                    <tr>
+                                        <td>pantothenic acid</td>
+                                        <td>3.689 mg</td>
+                                    </tr>
+                                    <tr>
+                                        <td>saturated fat</td>
+                                        <td>20.0 mg</td>
+                                    </tr>
+                                    <tr>
+                                        <td>selenium</td>
+                                        <td>9.9 mg</td>
+                                    </tr>
+                                    <tr>
+                                        <td>sodium</td>
+                                        <td>1853.6 mg</td>
+                                    </tr>
+                                    <tr>
+                                        <td>thiamin</td>
+                                        <td>0.918 mg</td>
+                                    </tr>
+                                    <tr>
+                                        <td>total carbohydrates</td>
+                                        <td>223.59 mg</td>
+                                    </tr>
+                                    <tr>
+                                        <td>vitamin B12</td>
+                                        <td>2.4 mg</td>
+                                    </tr>
+                                    <tr>
+                                        <td>vitamin D</td>
+                                        <td>20.0 mg</td>
+                                    </tr>
+                                    <tr>
+                                        <td>vitamin E</td>
+                                        <td>13.42 mg</td>
+                                    </tr>
+                                    <tr>
+                                        <td>calories</td>
+                                        <td>283.0 mg</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<style>
+    html,
+    body,
+    .intro {
+        height: 100%;
+    }
+
+    .gradient-custom-1,
+    #content {
+        /* fallback for old browsers */
+        background: #CD9CF2 !important;
+        /* Chrome 10-25, Safari 5.1-6 */
+        background: -webkit-linear-gradient(to top, rgba(205, 156, 242, 1), rgba(246, 243, 255, 1)) !important;
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        background: linear-gradient(to top, rgba(205, 156, 242, 1), rgba(246, 243, 255, 1)) !important;
+    }
+
+    table td,
+    table th {
+        text-overflow: ellipsis;
+        white-space: break-spaces;
+        overflow: hidden;
+    }
+
+    tbody td {
+        font-weight: 500;
+        color: #999999;
+    }
+
+    .no-max {
+        max-width: 70vw;
+    }
+
+
+
+    .badge {
+        background-color: #CD9CF2;
+    }
+
+    .btn {
+        background-color: rgba(205, 156, 242, 1);
+        border: 0;
+    }
+</style>
+{% endblock %}

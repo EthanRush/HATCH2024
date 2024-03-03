@@ -5,18 +5,27 @@
 {% block head %}
 {{ super() }}
 <style type="text/css">
+    {
+        % if earth is defined %
+    }
 
-     {% if earth is defined %}
+    form button.button {
+        background-color: #DD5B6C !important;
+    }
 
-        form  button.button {
-            background-color: #DD5B6C!important;
-         }
-        #content, html, body, #content *:not(.button), #footer, #footer * {
-            background-color: #87D8C9 !important;
-        }
+    #content,
+    html,
+    body,
+    #content *:not(.button),
+    #footer,
+    #footer * {
+        background-color: #87D8C9 !important;
+    }
 
 
-    {% endif %}
+        {
+        % endif %
+    }
 
     .container-fluid {
         height: 100%;
@@ -33,8 +42,9 @@
         background-color: white !important;
     }
 
-     #drop-area *:not(.button) {         background-color: white !important;
-}
+    #drop-area *:not(.button) {
+        background-color: white !important;
+    }
 
     form * {
         margin-left: auto;
@@ -86,13 +96,6 @@
     i {
         font-size: xx-large;
     }
-
-         {% if earth is defined %}
-         
-
-{% endif %}
-
-   
 </style>
 {% endblock %}
 {% block content %}
@@ -106,16 +109,16 @@
             <div id="drop-area">
                 <div class="d-flex flex-column">
                     <i class="bi bi-cloud-arrow-up"></i>
-                     <input type="file" id="fileElem" multiple accept=".fasta">
+                    <input type="file" id="fileElem" multiple accept=".fasta">
                     <div class="row  my-2">
 
-                       
+
                         <div class="col-7">
                             <label class="button" for="fileElem">Select some files</label>
-                                                        <span id="fileCt">No File Chosen</span>
+                            <span id="fileCt">No File Chosen</span>
 
                         </div>
-                      
+
                     </div>
                 </div>
             </div>
@@ -195,7 +198,15 @@
             method: 'POST',
             body: formData
         })
-            .then(() => { console.log("uploaded"); })
+            .then(() => {
+                console.log("uploaded");
+                {% if earth is defined %}
+                window.location.href = "/earth-report"
+                {% else %}
+                window.location.href = "/mission-length"
+                {% endif %}
+
+            })
             .catch(() => { console.log("it broke"); });
     }
 </script>

@@ -1,6 +1,6 @@
 import pandas as pd
-daily_values_df = pd.read_csv("dailyvalue.csv")
-food_options_df = pd.read_csv("foods.csv")
+daily_values_df = pd.read_csv("./flaskr/food_data/base_dailyValue.csv")
+food_options_df = pd.read_csv("./flaskr/food_data/foods.csv")
 import pandas as pd
 def create_menu_with_supplements_and_values(daily_values_df, food_options_df):
     # Ensure all nutrient values in food_options_df are numeric

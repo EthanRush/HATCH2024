@@ -25,7 +25,7 @@
     }
 
     #omni-btn {
-        background-color: #33E4B4;
+        background-color: #571F84;
         font-size: x-large;
         width: 100%;
         height: 100%;
@@ -43,7 +43,7 @@
 <div class="container-fluid d-flex flex-column">
     <div class="my-auto">
         <div class="row mb-5 text-center">
-            <h2>Choose Your Astronauts</h2>
+            <h2>Choose Your Diet</h2>
         </div>
         <div class="row w-75 mx-auto mt-5 text-center">
                 <button id="vegan-btn" onclick="postDiet('vegan')">Vegan</button>
@@ -62,8 +62,8 @@ function postDiet(diet){
 fetch("/post-earth", {
   method: "POST",
   headers: { "Content-type": "application/json" },
-  body: JSON.stringify({ diet_type: diet})
-}) .then(() => { console.log("clicked");  })
+  body: JSON.stringify({ "diet_type": diet})
+}) .then(() => { console.log("clicked");  window.location.href = "/earth-upload"  })
             .catch(() => { console.log("it broke"); });;
 }
 

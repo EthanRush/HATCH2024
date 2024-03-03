@@ -1,4 +1,20 @@
-Food Name,portion (g),calories,biotin (µg),calcium (mg),chloride (mg),choline (mg),cholesterol (mg),chromium (mg),copper (mg),dietary fiber (g),Total lipid (fat) (g),folate (µg),iodine (µg),iron (mg),magnesium (mg),manganese (mg),molybdenum (μg),niacin (mg),pantothenic acid (mg),phosphorus (mg),potassium (mg),protein (g),riboflavin (mg),saturated fat,selenium (µg),sodium n (mg),thiamin (mg),total carbohydrates (g),Vitamin A (µg),Vitamin B6 (mg),Vitamin B12 (µg),Vitamin C (mg),Vitamin D,Vitamin E (mg),Vitamin K (µg),Zinc (mg)
-Chinese cabbage,122,13,2,93,12.1,2,2,2.219,2,2,2.16,41,2,1.24,11,2.144,2,2.428,2,29,371,1.56,2.263,2.221,2.4,34,2,2,212,2.166,2,26,2,2,34,2.17
-
-
+foodname,Vegetarian,Vegan,portion,calories,biotin,calcium,chloride,choline,cholesterol,chromium,copper,dietary_fiber,total_lipid_fat,folate,iodine,iron,magnesium,manganese,molybdenum,niacin,pantothenic_acid,phosphorus,potassium,protein,riboflavin,saturated_fat,selenium,sodium,thiamin,total_carbohydrates,vitamin_a,vitamin_b6,vitamin_b12,vitamin_c,vitamin_d,vitamin_e,vitamin_k,zinc,format
+Chinese cabbage,TRUE,TRUE,100,13,,93,12.1,,0,0.019,,,0.16,41,,1.04,11,0.144,,0.428,,29,371,1.56,0.063,0.021,0.4,34,,,212,0.166,0,26,0,0,34,0.17,seeds
+mizuna mustard,TRUE,TRUE,100,23,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,seeds
+Kale,TRUE,TRUE,100,50,,254,,,,,0.053,4.1,1.49,62,,1.6,32.7,0.92,,1.18,0.37,55,348,2.92,0.347,,,53,,,241,0.147,,93.4,,0.66,390,0.39,seeds
+Brown Rice,TRUE,TRUE,100,111,,8,,,,,0.266,4.3,3.31,,,1.24,115,2.7,63.9,6.27,,303,250,7.25,0.102,,14.8,2.4,,,,0.161,,,,,,1.85,seeds
+thale cress,TRUE,TRUE,100,32,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,seeds
+Flax seeds,TRUE,TRUE,100,534,,255,,78.7,,,1.22,27.3,42.2,87,,5.73,392,,,3.08,,642,813,,0.161,3.66,25.4,30,,,,0.473,,0.6,0,0.31,4.3,4.34,seeds
+Yellow Onions,TRUE,TRUE,100,132,0.003,15,,,,,0.035,2.71,0.05,,9,0.28,9,0.144,,,,34,182,,,,2.4,1,,,,,,8.2,,, ,0.2,seeds
+"Blackeye Pea, Dry",TRUE,TRUE,100,116,,71,,,,,0.936,,2.42,,,5.93,184,1.29,,,,428,1240,21.2,,,,3,,,,,,,,,,3.65,seeds
+radishes raw,TRUE,TRUE,100,16,,25,,6.5,0,,0.05,1.6,0.1,25,,0.34,10,0.069,,0.254, ,20,233,,0.039,0.032,0.6,39,,,,0.071,0,14.8,0,0,1.3,0.28,seeds
+Romaine Lettuce,TRUE,TRUE,100,17,,33,,9.9,0,,0.048,2.1,0.3,136,,0.97,14,0.155,,0.313,,30,247,,0.067,0.039,,8,,,436,0.074,0,4,0,0,102,0.23,seeds
+Wheat Flour Whole Grain,TRUE,TRUE,100,340,,33,,31.2,0,,0.475,13.1,1.95,28,,3.71,117,3.4,,5.35,,323,394,9.61,0.188,0.43,,3,,,0,0.191,,,0,0.53,1.9,2.96,seeds
+garlic raw,TRUE,TRUE,100,149,,181,,23.2,0,,0.299,2.1,0.5,3,,1.7,25,1.67,,0.7,,153,401,,0.11,0.089,,17,,,0,1.24,0,31.2,0,0.08,1.7,1.16,seeds
+"cucumbers, peeled raw",TRUE,TRUE,100,12,,14,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,seeds
+parsley,TRUE,TRUE,100,36,,138,,12.8,,,0.149,3.3,0.79,152,,6.2,50,0.16,,1.31,0.4,,554,2.97,0.098,0.132,,56,0.086,6.33,,0.09,,133,,,1640,1.07,seeds
+Russet potato without skin,TRUE,TRUE,100,87,,8,,,,,0.091,14.9,0.36,,,0.38,25.6,0.152,4.9,1.5,,55,450,2.27,,,,3,0.074,17.8,,0.157,,10.9,,,1.5,0.38,seeds
+dill,TRUE,TRUE,100,43,,208,,,,,0.146,2.1,1.12,150,,6.59,55,1.26,,1.57,0.397,,738,3.46,0.296,0.06,,61,0.058,7.02,386,0.185,,,,,,0.91,seeds
+red romaine lettuce,TRUE,TRUE,100,17,,33,,11.8,,,0.028,0.9,0.22,36,,1.2,12,0.203,,0.321,0.144,28,187,1.33,0.077,0.028,1.5,25,0.064,2.26,375,0.1,,3.7,,,140,0.2,seeds
+beef,FALSE,FALSE,100,250,,5,,,67,,0.054,,17.8,,,2.06,17,0.012,,,,151,281,18.4,,6.34,,48,,,,,,,,,,5.39,dehydrated
+chicken,FALSE,FALSE,100,239,,6,,,82,,0.036,,7.16,,,0.59,20.5,0.005,,,,166,302,17.9,,1.56,,63,,,,,,,,,,1.18,dehydrated
