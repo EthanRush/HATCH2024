@@ -1,0 +1,13 @@
+Gene,rs number,location,value,problem,recommendation,reference,adjustments
+MTHFR,rs1801133,677,,"predisposed to mild hyperhomocysteinemia (high blood homocysteine levels),",eat high folate diet,https://digitalcommons.unl.edu/lawfacpub/124/,{folate: +20}
+CYP1A2,rs762551,,,Sensitive to caffiene,Do not drink more than 4 cups of coffee in one day,https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9880799/,
+CYP2E1,rs6413432,,,Alcohol Sclerosis,reduce alcohol intake,"https://sites.tufts.edu/alcoholmetabolism/the-biological-pathway/cytochrome-p450-2e1/#:~:text=Chronic%20alcohol%20consumption%20increases%20the,including%20certain%20drugs%20(3).",
+FADS1,rs174546,,,Vegitarian,diet higher in unsaturated fats,https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9464166/,{saturated fat: +20}
+SOD2,rs4880,,," including increased risk of diabetes, cardiovascular disease",Supplementation with manganese,https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3211030/,{manganese: +20}
+BCMO1,rs6564851,,,Issues converting beta carotene to vitamin A,diet higher in Vitamin A,https://pubmed.ncbi.nlm.nih.gov/20599666/,{Vitamin A: +20}
+SLC2A2,rs5400,,,risk of cardiovascular disease in type 2 diabetes mellitus patients,low sugar diet,https://www.ncbi.nlm.nih.gov/gene/6514,
+PPARG,rs1801282,,,difficulties with insulin sensitization and glucose metabolism,might do better with higher fat content (especially omega-3 & omega-6),https://nutritionj.biomedcentral.com/articles/10.1186/1475-2891-13-17,
+GSTP1,rs762551,,,difficulties with inflamation ,antioxidant rich diet,https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7902036/,
+PCSK9,rs505151,,,risk of obesity and heart disease,low fructose diet with high polyunsaturated fatty acids,https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5728080/,
+UGT1A1,rs4148323,,,risk of being hyperbilirubinemic ,might do better on a High fat diet ,https://nutritionandmetabolism.biomedcentral.com/articles/10.1186/s12986-023-00738-z,
+NR1I2,rs1523130,,,"difficulties with glucose, lipid and bile acid metabolism, inflammation","low glucose, anti-inflammatory diet",https://www.nature.com/articles/s41598-019-53101-9,
