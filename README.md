@@ -81,6 +81,57 @@ The algorithm iterates through available food options, calculating an optimized 
 
 Through careful consideration of each food item's contribution to overall nutritional goals, the algorithm ensures an optimized menu for space travel. This methodical approach to meal planning ensures that astronauts maintain optimal health while conserving space and weight, crucial for the success of long-duration missions.
 
+### Annotated Python Script for Pairwise Alignment
+
+The Python script uses the Biopython library to perform pairwise alignments between astronaut gene sequences and a reference genome. This process is essential for identifying genetic variations, which can then be used to tailor nutrition plans for astronauts.
+
+#### Script Explanation
+
+```python
+from Bio import SeqIO
+from Bio.pairwise2 import align
+
+# Load the reference genome for MTHFR gene
+reference_genome = SeqIO.read("chromosome_1_full_human.fasta", "fasta")
+```
+- **Reference Genome Loading**: The `SeqIO.read` function reads the reference genome sequence for the MTHFR gene from a FASTA file, which is a text-based format for representing nucleotide sequences.
+
+```python
+# Load astronaut gene sequences
+astronaut_sequences = [SeqIO.read(f"astronaut{i}.fasta", "fasta") for i in range(1, 6)]
+```
+- **Astronaut Gene Sequences Loading**: Loads the gene sequences of five astronauts from FASTA files into a list. The `SeqIO.read` function is used in a list comprehension to iterate through the filenames.
+
+```python
+# Align each astronaut's gene sequence with the reference genome
+alignments = [align.globalxx(reference_genome.seq, astronaut.seq) for astronaut in astronaut_sequences]
+```
+- **Pairwise Alignment**: For each astronaut, the script performs a global pairwise alignment between the astronaut's gene sequence and the reference genome sequence. The `align.globalxx` method performs an alignment without considering scoring matrices, which means it simply aligns based on character matching.
+
+```python
+# Identify and report variants
+for i, astronaut_alignments in enumerate(alignments):
+    # Assuming we take the first alignment (usually the highest score)
+    alignment = astronaut_alignments[0]
+    print(f"Astronaut {i+1} alignment to reference:")
+    print(alignment)
+```
+- **Variant Reporting**: Iterates over the alignments and prints the first (and presumably best) alignment for each astronaut. This step is critical for identifying differences between the astronaut's sequence and the reference, which can indicate genetic variants.
+
+### Pairwise Alignment in Bioinformatics
+
+**What Is Pairwise Alignment?**
+Pairwise alignment is a bioinformatics method used to align two sequences (DNA, RNA, or protein) to identify regions of similarity. The sequences are aligned in a way that maximizes the number of matching characters and minimizes the number of gaps or mismatches.
+
+**Why Is It Necessary?**
+In the context of this challenge, pairwise alignment is necessary for several reasons:
+
+- **Variant Identification**: By aligning the astronaut's gene sequences to a reference, we can pinpoint exact locations of genetic variations.
+- **Nutrigenomic Analysis**: Understanding genetic variations is key to nutrigenomics—the study of how different nutrients affect health depending on an individual’s genetics.
+- **Tailored Nutrition**: Once variations are identified, they can inform personalized nutrition plans that accommodate each astronaut's unique genetic makeup, which is vital for long-term space missions where efficiency and health are critical.
+
+Pairwise alignments are foundational for many bioinformatics analyses and are particularly well-suited for tasks like the one described in the challenge, where individual genetic differences can have significant implications for health and nutrition.
+
 ### Accessing HealthKit Data for our Web App
 
 HealthKit data is only accessible on iOS devices due to Apple's privacy and security guidelines. This means that when looking to use HealthKit data must run on an iOS device. The process starts with an iOS application (or shortcut) that requests permission to access HealthKit data:
